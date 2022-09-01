@@ -11,4 +11,8 @@ public interface UserService {
     public boolean insertUser(User user);
 
     public User getUser(String phone);
+
+    public String getPasswordByUsername(String username);
+
+    public boolean loginByUsernamePassword(String username,String password);
 }

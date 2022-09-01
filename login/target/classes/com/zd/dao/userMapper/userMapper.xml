@@ -9,6 +9,11 @@
     </insert>
 
     <select id="getUserByPhone" resultType="com.zd.pojo.User">
-        select id,username,password,phone from user where phone=#{phone}
+        select id,username,phone from user where phone=#{phone}
+    </select>
+
+
+    <select id="getPassword" resultType="java.lang.String">
+        select password from user where username=#{username}
     </select>
 </mapper>

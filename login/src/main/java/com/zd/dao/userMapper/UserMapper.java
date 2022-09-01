@@ -18,5 +18,10 @@ public interface UserMapper {
      */
     public User getUserByPhone(@Param("phone")String phone);
 
+    /**
+     * 根据用户名查询密码，用来验证用户登录
+     * @param username
+     * @return
+     */
     public String getPassword(@Param("username") String username);
 }

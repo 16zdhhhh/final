@@ -33,5 +33,22 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public String getPasswordByUsername(String username) {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        String password = mapper.getPassword(username);
+        return password;
+    }
+
+    @Override
+    public boolean loginByUsernamePassword(String username,String password) {
+        String passwordByUsername = getPasswordByUsername(username);
+        String encrypt = MybatisUtils.encrypt(password);
+        return encrypt.equals(passwordByUsername);
+
+
+    }
+
 
 }
